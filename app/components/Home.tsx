@@ -1,7 +1,7 @@
 import React from "react";
 
 function Home1() {
-  return <div className="text-5xl bg-red-400 text-center mt-10">Home</div>;
+  return <div className="">Home</div>;
 }
 
 export default Home1;

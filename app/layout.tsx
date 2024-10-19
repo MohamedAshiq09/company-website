@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Poppins } from "next/font/google";
-
+import ResponsiveNav from "./components/Navigation/ResponsiveNav";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700", "800"],
-  subsets : ["latin"]
-})
-
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,9 +20,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={poppins.className}
-      >
+      <body className={poppins.className}>
+        <ResponsiveNav />
         {children}
       </body>
     </html>
