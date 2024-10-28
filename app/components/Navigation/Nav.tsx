@@ -98,18 +98,20 @@
 // }
 
 // export default Nav;
-
 "use client";
 
 import { Bars3BottomRightIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 interface Props {
   openNav: () => void;
 }
 
 function Nav({ openNav }: Props) {
+  // State to control the dropdown visibility
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
   return (
     <div className="h-[12vh] bg-gray-300 shadow-md w-full max-w-7xl mx-auto rounded-b-3xl px-4 sm:px-6 lg:px-8 fixed top-0 left-0 right-0 z-50">
       <div className="w-[85%] flex items-center h-[12vh] justify-between mx-auto">
@@ -118,22 +120,40 @@ function Nav({ openNav }: Props) {
           anthosh
         </h1>
         <ul className="hidden lg:flex items-center space-x-10">
-          <li className="text-[18px] cursor-pointer text-bold text-red-400">
+          {/* Home link with dropdown */}
+          <li
+            className="relative text-[18px] cursor-pointer font-bold text-red-400"
+            onMouseEnter={() => setIsDropdownOpen(true)}
+            onMouseLeave={() => setIsDropdownOpen(false)}
+          >
             <Link href={"/"}>Home</Link>
+            {/* Dropdown menu */}
+            {isDropdownOpen && (
+              <div className="absolute left-0 mt-2 bg-white shadow-lg rounded-md p-3 text-slate-600 w-[150px]">
+                <ul>
+                  <li className="hover:text-red-400 cursor-pointer">
+                    <Link href={"/what-we-do"}>What We Do</Link>
+                  </li>
+                  <li className="hover:text-red-400 cursor-pointer mt-2">
+                    <Link href={"/who-we-are"}>Who We Are</Link>
+                  </li>
+                </ul>
+              </div>
+            )}
           </li>
-          <li className="text-[18px] cursor-pointer text-bold hover:text-red-400 transition-all duration-200">
+          <li className="text-[18px] cursor-pointer font-bold hover:text-red-400 transition-all duration-200">
             <Link href={"/about"}>About</Link>
           </li>
-          <li className="text-[18px] cursor-pointer text-bold hover:text-red-400 transition-all duration-200">
+          <li className="text-[18px] cursor-pointer font-bold hover:text-red-400 transition-all duration-200">
             <Link href={"/services"}>Services</Link>
           </li>
-          <li className="text-[18px] cursor-pointer text-bold hover:text-red-400 transition-all duration-200">
+          <li className="text-[18px] cursor-pointer font-bold hover:text-red-400 transition-all duration-200">
             <Link href={"/contact"}>Contact</Link>
           </li>
-          <li className="text-[18px] cursor-pointer text-bold hover:text-red-400 transition-all duration-200">
+          <li className="text-[18px] cursor-pointer font-bold hover:text-red-400 transition-all duration-200">
             <Link href={"/blog"}>Blog</Link>
           </li>
-          <li className="text-[18px] cursor-pointer text-bold hover:text-red-400 transition-all duration-200">
+          <li className="text-[18px] cursor-pointer font-bold hover:text-red-400 transition-all duration-200">
             <Link href={"/product"}>Product</Link>
           </li>
         </ul>
