@@ -1,6 +1,6 @@
 "use client";
 
-import { Bars3BottomRightIcon } from "@heroicons/react/24/solid";
+import { Bars3BottomRightIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -12,11 +12,16 @@ function Nav({ openNav }: Props) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false); // State for About dropdown
 
+  const toggleAboutDropdown = () => {
+    setIsAboutOpen(!isAboutOpen);
+  };
+
   return (
     <div className="h-[12vh] bg-gray-300 shadow-md w-full max-w-7xl mx-auto rounded-b-3xl px-4 sm:px-6 lg:px-8 fixed top-0 left-0 right-0 z-50">
       <div className="w-[85%] flex items-center h-[12vh] justify-between mx-auto">
         <h1 className="text-[14px] md:text-[23px] font-bold text-slate-600">
-          <span className="text-[27px] md:text-[40px] text-red-600">S</span>anthosh
+          <span className="text-[27px] md:text-[40px] text-red-600">S</span>
+          anthosh
         </h1>
         <ul className="hidden lg:flex items-center space-x-10">
           <li
@@ -38,14 +43,22 @@ function Nav({ openNav }: Props) {
               </div>
             )}
           </li>
-          <li
-            className="relative text-[18px] cursor-pointer font-bold text-red-400"
-            onMouseEnter={() => setIsAboutOpen(true)}
-            onMouseLeave={() => setIsAboutOpen(false)}
-          >
-            <Link href={"/about"}>About</Link>
+          {/* About dropdown without navigation */}
+          <li className="relative text-[18px] font-bold text-red-400 flex items-center">
+            <button 
+              onClick={toggleAboutDropdown} 
+              className="flex items-center focus:outline-none"
+              onMouseEnter={() => setIsAboutOpen(true)} // Show icon on hover
+              onMouseLeave={() => setIsAboutOpen(false)}
+            >
+              About
+              {/* Dropdown icon visibility and animation */}
+              <ChevronDownIcon 
+                className={`w-5 h-5 text-red-400 ml-1 transform transition-all duration-300 ${isAboutOpen ? 'rotate-180' : 'opacity-0'}`} 
+              />
+            </button>
             {isAboutOpen && (
-              <div className="absolute top-full mt-2 bg-gray-800 text-white p-4 rounded-lg shadow-lg grid grid-cols-2 gap-4 w-[250px]">
+              <div className="absolute top-full mt-2 bg-gray-800 text-white p-4 rounded-lg shadow-lg w-[300px] grid grid-cols-2 gap-4">
                 <div>
                   <h4 className="font-semibold">Capabilities</h4>
                   <ul className="mt-2 space-y-1">
