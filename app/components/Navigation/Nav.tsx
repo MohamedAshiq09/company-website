@@ -9,11 +9,16 @@ interface Props {
 }
 
 function Nav({ openNav }: Props) {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isAboutOpen, setIsAboutOpen] = useState(false); // State for About dropdown
+  const [isHomeDropdownOpen, setIsHomeDropdownOpen] = useState(false);
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false); // State for Services dropdown
 
   const toggleAboutDropdown = () => {
     setIsAboutOpen(!isAboutOpen);
+  };
+
+  const toggleServicesDropdown = () => {
+    setIsServicesOpen(!isServicesOpen);
   };
 
   return (
@@ -26,12 +31,12 @@ function Nav({ openNav }: Props) {
         <ul className="hidden lg:flex items-center space-x-10">
           <li
             className="relative text-[18px] cursor-pointer font-bold text-red-400"
-            onMouseEnter={() => setIsDropdownOpen(true)}
-            onMouseLeave={() => setIsDropdownOpen(false)}
+            onMouseEnter={() => setIsHomeDropdownOpen(true)}
+            onMouseLeave={() => setIsHomeDropdownOpen(false)}
           >
             <Link href={"/"}>Home</Link>
-            {isDropdownOpen && (
-              <div className="absolute left-0 mt-2 bg-white shadow-lg rounded-md p-3 text-slate-600 w-[150px]">
+            {isHomeDropdownOpen && (
+              <div className="absolute left-0 mt-2 bg-white shadow-lg rounded-md p-3 text-slate-600 w-[150px] transition-opacity duration-300">
                 <ul>
                   <li className="hover:text-red-400 cursor-pointer">
                     <Link href={"/what-we-do"}>What We Do</Link>
@@ -43,7 +48,7 @@ function Nav({ openNav }: Props) {
               </div>
             )}
           </li>
-          {/* About dropdown without navigation */}
+          {/* About dropdown with routing */}
           <li className="relative text-[18px] font-bold text-red-400 flex items-center">
             <button 
               onClick={toggleAboutDropdown} 
@@ -52,38 +57,112 @@ function Nav({ openNav }: Props) {
               onMouseLeave={() => setIsAboutOpen(false)}
             >
               About
-              {/* Dropdown icon visibility and animation */}
               <ChevronDownIcon 
                 className={`w-5 h-5 text-red-400 ml-1 transform transition-all duration-300 ${isAboutOpen ? 'rotate-180' : 'opacity-0'}`} 
               />
             </button>
             {isAboutOpen && (
-              <div className="absolute top-full mt-2 bg-gray-800 text-white p-4 rounded-lg shadow-lg w-[300px] grid grid-cols-2 gap-4">
+              <div className={`absolute top-full mt-2 bg-gray-800 text-white p-4 rounded-lg shadow-lg w-[300px] grid grid-cols-2 gap-4 transition-transform duration-500 ease-in-out transform ${isAboutOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'}`}>
                 <div>
                   <h4 className="font-semibold">Capabilities</h4>
                   <ul className="mt-2 space-y-1">
-                    <li>Cloud</li>
-                    <li>Cybersecurity</li>
-                    <li>Data and AI</li>
-                    <li>Digital Engineering</li>
-                    <li>Emerging Tech</li>
+                    <li className="hover:text-red-400 cursor-pointer">
+                      <Link href={"/about/cloud"}>Cloud</Link>
+                    </li>
+                    <li className="hover:text-red-400 cursor-pointer">
+                      <Link href={"/about/cybersecurity"}>Cybersecurity</Link>
+                    </li>
+                    <li className="hover:text-red-400 cursor-pointer">
+                      <Link href={"/about/data-ai"}>Data and AI</Link>
+                    </li>
+                    <li className="hover:text-red-400 cursor-pointer">
+                      <Link href={"/about/digital-engineering"}>Digital Engineering</Link>
+                    </li>
+                    <li className="hover:text-red-400 cursor-pointer">
+                      <Link href={"/about/emerging-tech"}>Emerging Tech</Link>
+                    </li>
                   </ul>
                 </div>
                 <div>
                   <h4 className="font-semibold">Industries</h4>
                   <ul className="mt-2 space-y-1">
-                    <li>Aerospace</li>
-                    <li>Automotive</li>
-                    <li>Banking</li>
-                    <li>Capital Markets</li>
-                    <li>Communications</li>
+                    <li className="hover:text-red-400 cursor-pointer">
+                      <Link href={"/about/aerospace"}>Aerospace</Link>
+                    </li>
+                    <li className="hover:text-red-400 cursor-pointer">
+                      <Link href={"/about/automotive"}>Automotive</Link>
+                    </li>
+                    <li className="hover:text-red-400 cursor-pointer">
+                      <Link href={"/about/banking"}>Banking</Link>
+                    </li>
+                    <li className="hover:text-red-400 cursor-pointer">
+                      <Link href={"/about/capital-markets"}>Capital Markets</Link>
+                    </li>
+                    <li className="hover:text-red-400 cursor-pointer">
+                      <Link href={"/about/communications"}>Communications</Link>
+                    </li>
                   </ul>
                 </div>
               </div>
             )}
           </li>
-          <li className="text-[18px] cursor-pointer font-bold hover:text-red-400 transition-all duration-200">
-            <Link href={"/services"}>Services</Link>
+          {/* Services dropdown with routing */}
+          <li className="relative text-[18px] font-bold text-red-400 flex items-center">
+            <button 
+              onClick={toggleServicesDropdown} 
+              className="flex items-center focus:outline-none"
+              onMouseEnter={() => setIsServicesOpen(true)} // Show icon on hover
+              onMouseLeave={() => setIsServicesOpen(false)}
+            >
+              Services
+              <ChevronDownIcon 
+                className={`w-5 h-5 text-red-400 ml-1 transform transition-all duration-300 ${isServicesOpen ? 'rotate-180' : 'opacity-0'}`} 
+              />
+            </button>
+            {isServicesOpen && (
+              <div className={`absolute top-full mt-2 bg-gray-800 text-white p-4 rounded-lg shadow-lg w-[300px] grid grid-cols-2 gap-4 transition-transform duration-500 ease-in-out transform ${isServicesOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'}`}>
+                <div>
+                  <h4 className="font-semibold">Our Services</h4>
+                  <ul className="mt-2 space-y-1">
+                    <li className="hover:text-red-400 cursor-pointer">
+                      <Link href={"/services/consulting"}>Consulting</Link>
+                    </li>
+                    <li className="hover:text-red-400 cursor-pointer">
+                      <Link href={"/services/development"}>Development</Link>
+                    </li>
+                    <li className="hover:text-red-400 cursor-pointer">
+                      <Link href={"/services/design"}>Design</Link>
+                    </li>
+                    <li className="hover:text-red-400 cursor-pointer">
+                      <Link href={"/services/support"}>Support</Link>
+                    </li>
+                    <li className="hover:text-red-400 cursor-pointer">
+                      <Link href={"/services/training"}>Training</Link>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold">Industries Served</h4>
+                  <ul className="mt-2 space-y-1">
+                    <li className="hover:text-red-400 cursor-pointer">
+                      <Link href={"/services/healthcare"}>Healthcare</Link>
+                    </li>
+                    <li className="hover:text-red-400 cursor-pointer">
+                      <Link href={"/services/finance"}>Finance</Link>
+                    </li>
+                    <li className="hover:text-red-400 cursor-pointer">
+                      <Link href={"/services/retail"}>Retail</Link>
+                    </li>
+                    <li className="hover:text-red-400 cursor-pointer">
+                      <Link href={"/services/education"}>Education</Link>
+                    </li>
+                    <li className="hover:text-red-400 cursor-pointer">
+                      <Link href={"/services/government"}>Government</Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            )}
           </li>
           <li className="text-[18px] cursor-pointer font-bold hover:text-red-400 transition-all duration-200">
             <Link href={"/contact"}>Contact</Link>
@@ -98,7 +177,7 @@ function Nav({ openNav }: Props) {
         <div>
           <Bars3BottomRightIcon
             onClick={openNav}
-            className="w-[1.5rem] lg:hidden h-[1.5rem] text-slate-900 cursor-pointer"
+            className="h-8 w-8 cursor-pointer lg:hidden text-red-400"
           />
         </div>
       </div>
