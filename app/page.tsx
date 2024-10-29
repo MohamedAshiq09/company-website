@@ -1,5 +1,4 @@
-import About from "./components/About";
-import Home1 from "./components/Home";
+import Home1 from "./home/page";
 
 export default function Home() {
   return (
