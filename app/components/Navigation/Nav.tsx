@@ -64,7 +64,8 @@ function Nav({ openNav }: Props) {
                   className="absolute left-[-500px] top-full mt-12 w-[1300px] bg-gray-800 text-white p-8 shadow-lg rounded-3xl"
                 >
                   <div className="mb-5">
-                    <h1 className="text-3xl flex items-center "> About  Us   <motion.div
+                    <h1 className="text-3xl flex items-center "> About  Us   
+                      <motion.div
           className="ml-3 flex items-center mr-2  relative" 
           initial={{ scale: 1 }}
           whileHover={{
@@ -73,6 +74,8 @@ function Nav({ openNav }: Props) {
           }}
         >
           {/* Main Arrow */}
+          <Link href="/about">
+
           <motion.div
             className="flex items-center bg-gray-400 rounded-md p-2 justify-center"
             initial={{ opacity: 1 }}
@@ -83,6 +86,7 @@ function Nav({ openNav }: Props) {
           >
             <ArrowRightIcon className="w-8 h-6 text-gray-100" />
           </motion.div>
+          </Link>
           
           {/* Expanded Arrows on Hover */}
           <motion.div
