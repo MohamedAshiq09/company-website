@@ -3,6 +3,7 @@
 import { Bars3BottomRightIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface Props {
   openNav: () => void;
@@ -44,78 +45,92 @@ function Nav({ openNav }: Props) {
             )}
           </li>
 
-          {/* Updated "About" dropdown with full-width alignment */}
           <li className="relative text-[18px] font-bold text-red-400 flex items-center">
-            <button 
-              onClick={toggleAboutDropdown} 
-              className="flex items-center focus:outline-"
-            >
-              About
+            <button onClick={toggleAboutDropdown} className="flex items-center focus:outline-none">
+              Who we are
               <ChevronDownIcon 
-                className={`w-5 h-5 text-red-400 ml-1 transform transition-all duration-300 ${isAboutOpen ? 'rotate-180' : ''}`} 
+                className={`w-5 h-5 text-red-400 ml-1 transform transition-transform duration-500 ${isAboutOpen ? 'rotate-180' : ''}`} 
               />
             </button>
-            {isAboutOpen && (
-              <div 
-  style={{ left: "-562px" }} 
-  className="absolute top-full mt-12 w-[1300px] bg-gray-800 right-2 text-white p-8  shadow-lg rounded-b-3xl transition-transform duration-500 ease-in-out"
->
-                <div className="grid grid-cols-3 gap-8">
-                  
-                  {/* Column 1 - Our Organization */}
-                  <div>
-                    <h4 className="font-semibold text-lg mb-4">Our Organization</h4>
-                    <ul className="space-y-2">
-                      <li className="hover:text-red-400 cursor-pointer">
-                        <Link href={"/about/cloud"}>Cloud</Link>
-                      </li>
-                      <li className="hover:text-red-400 cursor-pointer">
-                        <Link href={"/about/locations"}>Locations</Link>
-                      </li>
-                      <li className="hover:text-red-400 cursor-pointer">
-                        <Link href={"/about/value-report"}>360° Value Report</Link>
-                      </li>
-                    </ul>
-                  </div>
 
-                  {/* Column 2 - Media & Investors */}
-                  <div>
-                    <h4 className="font-semibold text-lg mb-4">Media & Investors</h4>
-                    <ul className="space-y-2">
-                      <li className="hover:text-red-400 cursor-pointer">
-                        <Link href={"/about/media-relations"}>Media Relations</Link>
-                      </li>
-                      <li className="hover:text-red-400 cursor-pointer">
-                        <Link href={"/about/investor-relations"}>Investor Relations</Link>
-                      </li>
-                    </ul>
-                  </div>
+            <AnimatePresence>
+              {isAboutOpen && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9, y: -10 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.9, y: -10 }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  className="absolute left-[-500px] top-full mt-12 w-[1300px] bg-gray-800 text-white p-8 shadow-lg rounded-b-3xl"
+                >
+                  <div className="grid grid-cols-3 gap-8">
+                    
+                    {/* Column 1 - Our Organization */}
+                    <motion.div
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 }}
+                    >
+                      <h4 className="font-semibold text-lg mb-4">Our Organization</h4>
+                      <ul className="space-y-2">
+                        <li className="hover:text-red-400 cursor-pointer">
+                          <Link href={"/about/cloud"}>Cloud</Link>
+                        </li>
+                        <li className="hover:text-red-400 cursor-pointer">
+                          <Link href={"/about/locations"}>Locations</Link>
+                        </li>
+                        <li className="hover:text-red-400 cursor-pointer">
+                          <Link href={"/about/value-report"}>360° Value Report</Link>
+                        </li>
+                      </ul>
+                    </motion.div>
 
-                  {/* Column 3 - How We Serve */}
-                  <div>
-                    <h4 className="font-semibold text-lg mb-4">How We Serve</h4>
-                    <ul className="space-y-2">
-                      <li className="hover:text-red-400 cursor-pointer">
-                        <Link href={"/about/strategy"}>Strategy and Consulting</Link>
-                      </li>
-                      <li className="hover:text-red-400 cursor-pointer">
-                        <Link href={"/about/technology"}>Technology</Link>
-                      </li>
-                      <li className="hover:text-red-400 cursor-pointer">
-                        <Link href={"/about/operations"}>Operations</Link>
-                      </li>
-                      <li className="hover:text-red-400 cursor-pointer">
-                        <Link href={"/about/industry-x"}>Industry X</Link>
-                      </li>
-                      <li className="hover:text-red-400 cursor-pointer">
-                        <Link href={"/about/song"}>Song</Link>
-                      </li>
-                    </ul>
-                  </div>
+                    {/* Column 2 - Media & Investors */}
+                    <motion.div
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.2 }}
+                    >
+                      <h4 className="font-semibold text-lg mb-4">Media & Investors</h4>
+                      <ul className="space-y-2">
+                        <li className="hover:text-red-400 cursor-pointer">
+                          <Link href={"/about/media-relations"}>Media Relations</Link>
+                        </li>
+                        <li className="hover:text-red-400 cursor-pointer">
+                          <Link href={"/about/investor-relations"}>Investor Relations</Link>
+                        </li>
+                      </ul>
+                    </motion.div>
 
-                </div>
-              </div>
-            )}
+                    {/* Column 3 - How We Serve */}
+                    <motion.div
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.3 }}
+                    >
+                      <h4 className="font-semibold text-lg mb-4">How We Serve</h4>
+                      <ul className="space-y-2">
+                        <li className="hover:text-red-400 cursor-pointer">
+                          <Link href={"/about/strategy"}>Strategy and Consulting</Link>
+                        </li>
+                        <li className="hover:text-red-400 cursor-pointer">
+                          <Link href={"/about/technology"}>Technology</Link>
+                        </li>
+                        <li className="hover:text-red-400 cursor-pointer">
+                          <Link href={"/about/operations"}>Operations</Link>
+                        </li>
+                        <li className="hover:text-red-400 cursor-pointer">
+                          <Link href={"/about/industry-x"}>Industry X</Link>
+                        </li>
+                        <li className="hover:text-red-400 cursor-pointer">
+                          <Link href={"/about/song"}>Song</Link>
+                        </li>
+                      </ul>
+                    </motion.div>
+
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </li>
 
           {/* Other menu items */}
