@@ -4,6 +4,7 @@ import { Bars3BottomRightIcon, ChevronDownIcon } from "@heroicons/react/24/solid
 import Link from "next/link";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRightIcon } from "@heroicons/react/16/solid";
 
 interface Props {
   openNav: () => void;
@@ -18,7 +19,7 @@ function Nav({ openNav }: Props) {
   };
 
   return (
-    <div className="h-[12vh] bg-gray-300 shadow-md  w-[1300px] mx-auto   px-4 sm:px-6 lg:px-8 fixed top-0 left-0 right-0 z-50">
+    <div className="h-[12vh] bg-gray-300 shadow-md  w-[1300px] mx-auto   rounded-b-3xl px-4 sm:px-6 lg:px-8 fixed top-0 left-0 right-0 z-50">
       <div className="w-[85%] flex items-center h-[12vh] justify-between mx-auto">
         <h1 className="text-[14px] md:text-[23px] font-bold text-slate-600">
           <span className="text-[27px] md:text-[40px] text-red-600">S</span>
@@ -60,17 +61,54 @@ function Nav({ openNav }: Props) {
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.9, y: -10 }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="absolute left-[-500px] top-full mt-12 w-[1300px] bg-gray-800 text-white p-8 shadow-lg rounded-b-3xl"
+                  className="absolute left-[-500px] top-full mt-12 w-[1300px] bg-gray-800 text-white p-8 shadow-lg rounded-3xl"
                 >
+                  <div className="mb-5">
+                    <h1 className="text-3xl flex items-center "> About  Us  <motion.div
+          className="ml-3 flex items-center"
+          initial={{ scale: 1 }}
+          whileHover={{
+            scale: 1.2,
+            transition: { duration: 0.3, ease: "easeInOut" },
+          }}
+        >
+          {/* Main Arrow */}
+          <motion.div
+            className="relative"
+            initial={{ opacity: 1 }}
+            whileHover={{
+              opacity: 0,
+              transition: { duration: 0.2 },
+            }}
+          >
+            <ArrowRightIcon className="w-8 h-6 text-gray-200" />
+          </motion.div>
+          
+          {/* Expanded Arrows on Hover */}
+          <motion.div
+            className="absolute left-full flex space-x-1 opacity-0"
+            whileHover={{ opacity: 1, transition: { duration: 0.2 } }}
+            style={{ pointerEvents: "none" }} // Prevent interaction with the expanded arrows
+          >
+            {Array.from({ length: 5 }).map((_, index) => (
+              <ArrowRightIcon
+                key={index}
+                className="w-6 h-6 text-gray-200 animate-pulse"
+                style={{ animationDelay: `${index * 0.1}s` }} // Staggered loading effect
+              />
+            ))}
+          </motion.div>
+        </motion.div>
+        </h1>
+                     </div>
                   <div className="grid grid-cols-3 gap-8">
                     
-                    {/* Column 1 - Our Organization */}
                     <motion.div
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.1 }}
                     >
-                      <h4 className="font-semibold text-lg mb-4">Our Organization</h4>
+                      <h4 className="font-semibold text-lg mb-4 text-gray-500" >Our Organization</h4>
                       <ul className="space-y-2">
                         <li className="hover:text-red-400 cursor-pointer">
                           <Link href={"/about/cloud"}>Cloud</Link>
@@ -84,13 +122,12 @@ function Nav({ openNav }: Props) {
                       </ul>
                     </motion.div>
 
-                    {/* Column 2 - Media & Investors */}
                     <motion.div
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.2 }}
                     >
-                      <h4 className="font-semibold text-lg mb-4">Media & Investors</h4>
+                      <h4 className="font-semibold text-lg mb-4 text-gray-500" >Media & Investors</h4>
                       <ul className="space-y-2">
                         <li className="hover:text-red-400 cursor-pointer">
                           <Link href={"/about/media-relations"}>Media Relations</Link>
@@ -101,13 +138,12 @@ function Nav({ openNav }: Props) {
                       </ul>
                     </motion.div>
 
-                    {/* Column 3 - How We Serve */}
                     <motion.div
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.3 }}
                     >
-                      <h4 className="font-semibold text-lg mb-4">How We Serve</h4>
+                      <h4 className="font-semibold text-lg mb-4 text-gray-500">How We Serve</h4>
                       <ul className="space-y-2">
                         <li className="hover:text-red-400 cursor-pointer">
                           <Link href={"/about/strategy"}>Strategy and Consulting</Link>
