@@ -64,8 +64,8 @@ function Nav({ openNav }: Props) {
                   className="absolute left-[-500px] top-full mt-12 w-[1300px] bg-gray-800 text-white p-8 shadow-lg rounded-3xl"
                 >
                   <div className="mb-5">
-                    <h1 className="text-3xl flex items-center "> About  Us  <motion.div
-          className="ml-3 flex items-center"
+                    <h1 className="text-3xl flex items-center "> About  Us   <motion.div
+          className="ml-3 flex items-center mr-2  relative" 
           initial={{ scale: 1 }}
           whileHover={{
             scale: 1.2,
@@ -74,28 +74,32 @@ function Nav({ openNav }: Props) {
         >
           {/* Main Arrow */}
           <motion.div
-            className="relative"
+            className="flex items-center bg-gray-400 rounded-md p-2 justify-center"
             initial={{ opacity: 1 }}
             whileHover={{
               opacity: 0,
               transition: { duration: 0.2 },
             }}
           >
-            <ArrowRightIcon className="w-8 h-6 text-gray-200" />
+            <ArrowRightIcon className="w-8 h-6 text-gray-100" />
           </motion.div>
           
           {/* Expanded Arrows on Hover */}
           <motion.div
-            className="absolute left-full flex space-x-1 opacity-0"
-            whileHover={{ opacity: 1, transition: { duration: 0.2 } }}
-            style={{ pointerEvents: "none" }} // Prevent interaction with the expanded arrows
+            className="absolute left-full flex space-x-1"
+            initial={{ opacity: 0 }}
+            whileHover={{ opacity: 2, transition: { duration: 0.4 } }}
           >
-            {Array.from({ length: 5 }).map((_, index) => (
-              <ArrowRightIcon
+            {Array.from({ length: 2}).map((_, index) => (
+              <motion.div
                 key={index}
-                className="w-6 h-6 text-gray-200 animate-pulse"
-                style={{ animationDelay: `${index * 0.1}s` }} // Staggered loading effect
-              />
+                initial={{ x: -10, opacity: 0 }} 
+                animate={{ x: 0, opacity: 1 }} 
+                transition={{ duration: 0.2, delay: index * 0.1 }} 
+                className="bg-gray-400 p-2 rounded-md"
+              >
+                <ArrowRightIcon className="w-6 h-6 text-gray-100" />
+              </motion.div>
             ))}
           </motion.div>
         </motion.div>
