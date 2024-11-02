@@ -19,7 +19,7 @@ function Nav({ openNav }: Props) {
   };
 
   return (
-    <div className="h-[12vh] bg-gray-50 shadow-md w-full  mx-auto rounded-b-3xl px-4 sm:px-6 lg:px-8 fixed top-0 left-0 right-0 z-50">
+    <div className="h-[12vh] bg-black shadow-md w-full  mx-auto rounded-b-3xl px-4 sm:px-6 lg:px-8 fixed top-0 left-0 right-0 z-50">
       <div className="w-[85%] flex items-center h-[12vh] justify-between mx-auto">
         <h1 className="text-[14px] md:text-[23px] font-bold text-slate-600">
           <span className="text-[27px] md:text-[40px] text-red-600">S</span>
@@ -63,7 +63,7 @@ function Nav({ openNav }: Props) {
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.9, y: -10 }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="fixed top-[12vh] w-full -left-[5px] bg-gray-800 mt-3 text-white p-8 shadow-lg rounded-3xl z-50">                  
+                  className="fixed top-[12vh] w-full -left-[5px] bg-black bg-opacity-30 backdrop-blur-md mt-3 text-white p-8 shadow-lg rounded-3xl z-50">
                   <div className="mb-5">
                     <h1 className="text-3xl flex items-center">
                       About Us
