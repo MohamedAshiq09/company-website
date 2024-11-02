@@ -39,7 +39,7 @@ function Nav({ openNav }: Props) {
                     <Link href={"/what-we-do"}>What We Do</Link>
                   </li>
                   <li className="hover:text-red-400 cursor-pointer mt-2">
-                    <Link href={"/who-we-are"}>Who We Are</Link>
+                    <Link href={"/"}>Who We Are</Link>
                   </li>
                 </ul>
               </div>
