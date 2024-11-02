@@ -7,7 +7,29 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        rotate: 'rotate 20s linear infinite',
+        fadeIn: 'fadeIn 2s ease-out forwards',
+      },
+      keyframes: {
+        rotate: {
+          from: { transform: 'rotateY(0deg) rotateX(23.5deg)' },
+          to: { transform: 'rotateY(360deg) rotateX(23.5deg)' },
+        },
+        fadeIn: {
+          from: {
+            opacity: '0',
+            transform: 'translateY(20px)',
+          },
+          to: {
+            opacity: '1',
+            transform: 'translateY(0)',
+          },
+        },
+      },
+    },
+  
   },
   plugins: [],
 };
