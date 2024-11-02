@@ -19,7 +19,7 @@ function Nav({ openNav }: Props) {
   };
 
   return (
-    <div className="h-[12vh] bg-gray-300 shadow-md  w-[1300px] mx-auto   rounded-b-3xl px-4 sm:px-6 lg:px-8 fixed top-0 left-0 right-0 z-50">
+    <div className="h-[12vh] bg-black shadow-md  w-[1300px] mx-auto   rounded-b-3xl px-4 sm:px-6 lg:px-8 fixed top-0 left-0 right-0 z-50">
       <div className="w-[85%] flex items-center h-[12vh] justify-between mx-auto">
         <h1 className="text-[14px] md:text-[23px] font-bold text-slate-600">
           <span className="text-[27px] md:text-[40px] text-red-600">S</span>
@@ -35,7 +35,7 @@ function Nav({ openNav }: Props) {
             {isHomeDropdownOpen && (
               <div className="absolute left-0 mt-2 bg-white shadow-lg rounded-md p-3 text-slate-600 w-[1000px] transition-opacity duration-300">
                 <ul>
-                  <li className="hover:text-red-400 cursor-pointer">
+                  <li className="hover:text-red-400 cursor-pointer ">
                     <Link href={"/what-we-do"}>What We Do</Link>
                   </li>
                   <li className="hover:text-red-400 cursor-pointer mt-2">
@@ -178,7 +178,7 @@ function Nav({ openNav }: Props) {
           </li>
 
           {/* Other menu items */}
-          <li className="text-[18px] cursor-pointer font-bold hover:text-red-400 transition-all duration-200">
+          <li className="text-[18px] cursor-pointer font-bold text-white hover:text-red-400 transition-all duration-200">
             <Link href={"/contact"}>What can we do</Link>
           </li>
           <li className="text-[18px] cursor-pointer font-bold hover:text-red-400 transition-all duration-200">

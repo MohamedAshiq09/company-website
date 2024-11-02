@@ -1,11 +1,17 @@
-import React from 'react'
+"use client"
+import React from 'react';
+import ThreeScene from '../components/three/ThreeScene';
 
-function Home1() {
+const Home: React.FC = () => {
   return (
-    <div>
-      
+    <div style={{ position: 'relative', width: '100%', height: '100vh', overflow: 'hidden' }}>
+      <ThreeScene />
+      <div className="content" style={{ position: 'relative', zIndex: 1 }}>
+        <h1>Welcome to My Homepage</h1>
+        {/* Additional content */}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home1
+export default Home;
