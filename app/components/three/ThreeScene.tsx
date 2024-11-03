@@ -32,7 +32,7 @@ const ThreeScene: React.FC = () => {
   const handlePointerUp = () => setIsDragging(false);   // Stop dragging
 
   return (
-    <div className="relative flex items-center justify-center min-h-screen bg-gray-900 overflow-hidden text-white">
+    <div className="relative flex items-center justify-center min-h-screen bg-black overflow-hidden text-white">
       {/* Starry Background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         {stars.map((star, i) => (
@@ -66,14 +66,15 @@ const ThreeScene: React.FC = () => {
           height: '80vh',
           maxWidth: '1000px',
           maxHeight: '700px',
-          transform: 'scale(1.2)', // Adjust scale factor to increase size
-          transformOrigin: 'center', // Ensure scaling is from the center
+          // transform: 'scale(1.4)', 
+          // transformOrigin: 'center', 
         }}
+        
         onPointerDown={handlePointerDown} 
         onPointerUp={handlePointerUp}
       >
         <Spline scene="https://prod.spline.design/cfF17GOAuWfbhK6n/scene.splinecode" /> 
-        <div className="absolute inset-0 bg-black opacity-10 z-20" />
+        {/* <div className="absolute inset-0 bg-black opacity-10 z-20" /> */}
       </div>
     </div>
   );
