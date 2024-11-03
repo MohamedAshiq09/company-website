@@ -19,12 +19,12 @@ function Nav({ openNav }: Props) {
   };
 
   return (
-    <div className="h-[12vh] bg-black shadow-md w-full  mx-auto rounded-b-3xl px-4 sm:px-6 lg:px-8 fixed top-0 left-0 right-0 z-50">
-      <div className="w-[85%] flex items-center h-[12vh] justify-between mx-auto">
-        <h1 className="text-[14px] md:text-[23px] font-bold text-slate-600">
-          <span className="text-[27px] md:text-[40px] text-red-600">S</span>
-          anthosh
-        </h1>
+    <div className="h-[12vh] bg-black shadow-md w-full mx-auto rounded-b-3xl px-4 sm:px-6 lg:px-8 fixed top-0 left-0 right-0 z-50">
+  <div className="flex items-center h-full justify-between w-full">
+    <h1 className="text-[14px] md:text-[23px] font-bold text-slate-600">
+      <span className="text-[27px] md:text-[40px] text-red-600">S</span>
+      anthosh
+    </h1> 
         <ul className="hidden lg:flex items-center space-x-10">
           <li
             className="relative text-[18px] cursor-pointer font-bold text-red-400"
