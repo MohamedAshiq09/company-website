@@ -130,6 +130,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from 'react';
 
+
 interface Star {
   top: string;
   left: string;
@@ -234,20 +235,20 @@ const ThreeScene: React.FC = () => {
     <div className="relative flex flex-col items-center justify-center min-h-screen bg-black overflow-hidden text-white">
       {/* Starry Background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        {stars.map((star, i) => (
-          <div
-            key={i}
-            className="absolute bg-white rounded-full opacity-80"
-            style={{
-              width: '4x',
-              height: '4px',
-              top: star.top,
-              left: star.left,
-              animation: `pulse ${star.duration}s infinite`,
-              boxShadow: '0 0 12px rgba(255, 255, 255, 0.8)', // Stronger glow effect
-            }}
-          />
-        ))}
+      {stars.map((star, i) => (
+  <div
+    key={i}
+    className={`absolute bg-white rounded-full opacity-90 animate-glow`} // Use Tailwind's animate-glow
+    style={{
+      width: '4px', // Thicker stars
+      height: '4px', // Thicker stars
+      top: star.top,
+      left: star.left,
+      boxShadow: '0 0 12px rgba(255, 255, 255, 0.8)', // Stronger glow effect
+    }}
+  />
+))}
+
       </div>
 
       {/* Touch Indicator */}
