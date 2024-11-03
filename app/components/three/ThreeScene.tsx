@@ -189,15 +189,16 @@ const ThreeScene: React.FC = () => {
       <div
         className="relative z-10"
         style={{
-          width: '80vw',        // Set the width of the Spline model container
-          height: '80vh',       // Set the height of the Spline model container
-          maxWidth: '1000px',   // Limit max width
-          maxHeight: '700px',   // Limit max height
+          width: '80vw',        
+          height: '80vh',       
+          maxWidth: '1000px',   
+          maxHeight: '700px',   
         }}
         onPointerDown={handlePointerDown} 
         onPointerUp={handlePointerUp}
       >
         <Spline scene="https://prod.spline.design/cfF17GOAuWfbhK6n/scene.splinecode" /> 
+        <div className="absolute inset-0 bg-black opacity-10 z-20" />
       </div>
     </div>
   );
