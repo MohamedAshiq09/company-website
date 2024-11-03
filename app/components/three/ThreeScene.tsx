@@ -129,6 +129,7 @@
 
 "use client";
 import React, { useEffect, useRef, useState } from 'react';
+import Spline from '@splinetool/react-spline';
 
 interface Star {
   top: string;
@@ -137,17 +138,14 @@ interface Star {
 }
 
 const ThreeScene: React.FC = () => {
-  const globeRef = useRef<HTMLDivElement>(null);
   const touchIndicatorRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
-  const [rotationX, setRotationX] = useState(23.5);
-  const [rotationY, setRotationY] = useState(0);
-  const [autoRotate, setAutoRotate] = useState(true);
   const [stars, setStars] = useState<Star[]>([]);
 
+  // Generate stars for the background
   useEffect(() => {
     const generateStars = () => {
-      return [...Array(100)].map(() => ({
+      return [...Array(150)].map(() => ({
         top: `${Math.random() * 100}%`,
         left: `${Math.random() * 100}%`,
         duration: 4 + Math.random() * 4,
@@ -156,98 +154,28 @@ const ThreeScene: React.FC = () => {
     setStars(generateStars());
   }, []);
 
-  useEffect(() => {
-    const globe = globeRef.current;
-    const touchIndicator = touchIndicatorRef.current;
-
-    let startX = 0;
-    let startY = 0;
-    let lastX = rotationY;
-    let lastY = rotationX;
-
-    const startDragging = (e: MouseEvent | TouchEvent) => {
-      setIsDragging(true);
-      setAutoRotate(false);
-
-      if (e instanceof MouseEvent) {
-        startX = e.clientX;
-        startY = e.clientY;
-      } else {
-        startX = e.touches[0].clientX;
-        startY = e.touches[0].clientY;
-      }
-
-      lastX = rotationY;
-      lastY = rotationX;
-    };
-
-    const drag = (e: MouseEvent | TouchEvent) => {
-      if (!isDragging) return;
-
-      const clientX = e instanceof MouseEvent ? e.clientX : e.touches[0].clientX;
-      const clientY = e instanceof MouseEvent ? e.clientY : e.touches[0].clientY;
-
-      setRotationY(lastX + (clientX - startX) * 0.2);
-      setRotationX(Math.max(-45, Math.min(45, lastY + (clientY - startY) * 0.2)));
-
-      if (touchIndicator) {
-        touchIndicator.style.left = `${clientX}px`;
-        touchIndicator.style.top = `${clientY}px`;
-        touchIndicator.style.opacity = '1';
-      }
-    };
-
-    const stopDragging = () => {
-      setIsDragging(false);
-      if (touchIndicator) touchIndicator.style.opacity = '0';
-      setTimeout(() => setAutoRotate(true), 1500);
-    };
-
-    globe?.addEventListener('mousedown', startDragging);
-    document.addEventListener('mousemove', drag);
-    document.addEventListener('mouseup', stopDragging);
-
-    globe?.addEventListener('touchstart', startDragging);
-    document.addEventListener('touchmove', drag, { passive: false });
-    document.addEventListener('touchend', stopDragging);
-
-    return () => {
-      globe?.removeEventListener('mousedown', startDragging);
-      document.removeEventListener('mousemove', drag);
-      document.removeEventListener('mouseup', stopDragging);
-
-      globe?.removeEventListener('touchstart', startDragging);
-      document.removeEventListener('touchmove', drag);
-      document.removeEventListener('touchend', stopDragging);
-    };
-  }, [isDragging, rotationX, rotationY]);
-
-  useEffect(() => {
-    const animate = () => {
-      if (autoRotate && !isDragging) setRotationY((prev) => prev + 0.2);
-      requestAnimationFrame(animate);
-    };
-    animate();
-  }, [autoRotate, isDragging]);
+  // Handle dragging interactions
+  const handlePointerDown = () => setIsDragging(true); // Start dragging
+  const handlePointerUp = () => setIsDragging(false);   // Stop dragging
 
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen bg-black overflow-hidden text-white">
+    <div className="relative flex items-center justify-center min-h-screen bg-black overflow-hidden text-white">
       {/* Starry Background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-      {stars.map((star, i) => (
-  <div
-    key={i}
-    className={`absolute bg-white rounded-full opacity-90 animate-glow`} // Use Tailwind's animate-glow
-    style={{
-      width: '4px', // Thicker stars
-      height: '4px', // Thicker stars
-      top: star.top,
-      left: star.left,
-      boxShadow: '0 0 12px rgba(255, 255, 255, 0.8)', // Stronger glow effect
-    }}
-  />
-))}
-
+        {stars.map((star, i) => (
+          <div
+            key={i}
+            className="absolute bg-white rounded-full opacity-80 animate-glow"
+            style={{
+              width: '3px',
+              height: '3px',
+              top: star.top,
+              left: star.left,
+              boxShadow: '0 0 8px rgba(255, 255, 255, 0.7)',
+              animationDuration: `${star.duration}s`,
+            }}
+          />
+        ))}
       </div>
 
       {/* Touch Indicator */}
@@ -257,43 +185,26 @@ const ThreeScene: React.FC = () => {
         style={{ transform: 'translate(-50%, -50%)' }}
       ></div>
 
-      {/* Globe */}
+      {/* Spline Model - Centered with Fixed Size */}
       <div
-        ref={globeRef}
-        className="w-96 h-96 relative z-10 cursor-grab"
-        style={{ perspective: '1000px', transformStyle: 'preserve-3d' }}
+        className="relative z-10"
+        style={{
+          width: '80vw',        // Set the width of the Spline model container
+          height: '80vh',       // Set the height of the Spline model container
+          maxWidth: '1000px',   // Limit max width
+          maxHeight: '700px',   // Limit max height
+        }}
+        onPointerDown={handlePointerDown} 
+        onPointerUp={handlePointerUp}
       >
-        <div
-          className="absolute w-full h-full rounded-full"
-          style={{ transform: `rotateX(${rotationX}deg) rotateY(${rotationY}deg)` }}
-        >
-          {[...Array(6)].map((_, i) => (
-            <div
-              key={`lat-${i}`}
-              className="absolute w-full h-full border rounded-full border-blue-500/50 shadow-lg"
-              style={{
-                transform: `rotateX(${(i - 2) * 30}deg)`,
-                borderWidth: '3px', // Thicker lines
-                boxShadow: '0 0 8px rgba(30, 144, 255, 0.6)', // Glow effect
-              }}
-            ></div>
-          ))}
-          {[...Array(6)].map((_, i) => (
-            <div
-              key={`lon-${i}`}
-              className="absolute w-full h-full border rounded-full border-blue-500/50 shadow-lg"
-              style={{
-                transform: `rotateY(${i * 30}deg)`,
-                borderWidth: '3px', // Thicker lines
-                boxShadow: '0 0 8px rgba(30, 144, 255, 0.6)', // Glow effect
-              }}
-            ></div>
-          ))}
-        </div>
+        <Spline scene="https://prod.spline.design/cfF17GOAuWfbhK6n/scene.splinecode" /> 
       </div>
     </div>
   );
 };
 
 export default ThreeScene;
+
+
+
 
