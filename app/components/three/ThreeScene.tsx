@@ -58,7 +58,6 @@ const ThreeScene: React.FC = () => {
         style={{ transform: 'translate(-50%, -50%)' }}
       ></div>
 
-      {/* Spline Model - Centered with Fixed Size and Scale */}
       <div
         className="relative z-10"
         style={{
@@ -66,8 +65,7 @@ const ThreeScene: React.FC = () => {
           height: '80vh',
           maxWidth: '1000px',
           maxHeight: '700px',
-          // transform: 'scale(1.4)', 
-          // transformOrigin: 'center', 
+          
         }}
         
         onPointerDown={handlePointerDown} 
