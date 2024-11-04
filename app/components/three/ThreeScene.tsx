@@ -72,7 +72,7 @@ const ThreeScene: React.FC = () => {
         onPointerUp={handlePointerUp}
       >
         <Spline scene="https://prod.spline.design/cfF17GOAuWfbhK6n/scene.splinecode" /> 
-        {/* <div className="absolute inset-0 bg-black opacity-10 z-20" /> */}
+        <div className="absolute inset-0 bg-black opacity-10 z-20" /> 
       </div>
     </div>
   );
