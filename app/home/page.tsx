@@ -1,5 +1,3 @@
-"use client"
-import React from 'react';
 import ThreeScene from '../components/three/ThreeScene';
 
 const Home: React.FC = () => {
