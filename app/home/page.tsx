@@ -10,9 +10,7 @@ const Home: React.FC = () => {
         <h1>Welcome to My Homepage</h1>
         Additional content
       </div>
-      
       </div>
-    
   );
 };
 
