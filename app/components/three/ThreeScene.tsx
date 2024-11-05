@@ -44,8 +44,8 @@ const ThreeScene: React.FC = () => {
         ))}
       </div>
 
-      {/* Spline Model */}
-      <Spline
+     {/* Spline Model */}
+       <Spline
         scene="https://prod.spline.design/sZOC8fJUUQUZiN1I/scene.splinecode"
         className="absolute z-10"
         style={{ width: '1200px', height: '1200px' }} 
