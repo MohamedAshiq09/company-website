@@ -1,8 +1,7 @@
-"use client";
+
 
 import { XMarkIcon } from "@heroicons/react/16/solid";
 import Link from "next/link";
-import React from "react";
 
 interface Props {
   nav: boolean;
