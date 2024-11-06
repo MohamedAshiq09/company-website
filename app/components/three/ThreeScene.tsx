@@ -25,7 +25,7 @@ const ThreeScene: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative flex items-center justify-center min-h-screen bg-black overflow-hidden text-white">
+    <div className="relative flex items-center justify-center min-h-screen bg-gray-900 overflow-hidden text-white">
       {/* Starry Background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         {stars.map((star, i) => (
@@ -45,18 +45,18 @@ const ThreeScene: React.FC = () => {
       </div>
 
      {/* Spline Model */}
-       <Spline
+       {/* <Spline
         scene="https://prod.spline.design/sZOC8fJUUQUZiN1I/scene.splinecode"
         className="absolute z-10"
         style={{ width: '1200px', height: '1200px' }} 
       />
 
       {/* Touch Indicator */}
-      <div
+      {/* <div
         ref={touchIndicatorRef}
         className="absolute w-5 h-5 bg-blue-500 rounded-full opacity-0 transition-opacity duration-300 pointer-events-none"
         style={{ transform: 'translate(-50%, -50%)' }}
-      ></div>
+      ></div> */} 
     </div>
   );
 };
