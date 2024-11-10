@@ -1,5 +1,6 @@
 
 
+import React from "react";
 import { XMarkIcon } from "@heroicons/react/16/solid";
 import Link from "next/link";
 
