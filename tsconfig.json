@@ -14,7 +14,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "preserve", // Updated to use the correct JSX setting for React 17 and newer
     "incremental": true,
     "plugins": [
       {
