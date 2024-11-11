@@ -9,13 +9,12 @@ const Home = () => {
 
       {/* Glassy Background Shape */}
       <div 
-              className="absolute top-0 border border-thin border-black right-0 w-[1600px] h-[900px] bg-blue-300
+              className="absolute top-0 border border-thin border-black right-0 w-[1600px] h-[900px] bg-lue-300
   backdrop-blur-lg"
         style={{
           borderBottomLeftRadius: '150% 200%',
           transform: 'translateX(15%) translateY(-20%)',
           backdropFilter: 'blur(10px)',
-     
         }}
       ></div>
 
@@ -37,8 +36,8 @@ const Home = () => {
         {/* Right Content - Image Section */}
         <section className="relative lg:w-1/2 flex items-center justify-center lg:ml-36 lg:-mr-[100px] p-6">
           {/* Center Image */}
-          <div className="w-56 h-56 bg-cover bg-center rounded-full bg-[url('/images/image1.jpg')] flex items-center justify-center relative -ml-12"></div>
-
+          <div className="w-56 h-56 bg-cover bg-center rounded-full bg-[url('/images/image1.jpg')] flex items-center justify-center relative -ml-12 translate-x-[-10px] translate-y-[30px]">
+     </div>
           {/* Circular Positioned Images */}
           <div className="absolute w-[450px] h-[450px] top-10 left-10 flex justify-center">
             {/* Left Side Circles */}
