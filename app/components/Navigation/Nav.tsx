@@ -19,7 +19,7 @@ function Nav({ openNav }: Props) {
   };
 
   return (
-    <div className="h-[12vh] bg-black w-full mx-auto rounded-b-3xl px-4 sm:px-6 lg:px-8 bg-opacity-30 backdrop-blur-md  shadow-lg fixed top-0 left-0 right-0 z-50">
+    <div className="h-[12vh] bg-black w-full mx-auto rounded-b-3xl px-4 sm:px-6 lg:px-8 bg-opacity-30 backdrop-blur-lg  shadow-lg fixed top-0 left-0 right-0 z-50">
   <div className="flex items-center h-full justify-between w-full">
     <h1 className="text-[14px] md:text-[23px] font-bold text-slate-600">
       <span className="text-[27px] md:text-[40px] text-red-600">S</span>
