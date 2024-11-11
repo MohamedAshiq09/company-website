@@ -1,19 +1,20 @@
-
 import React from 'react';
 import ResponsiveNav from '../components/Navigation/ResponsiveNav';
 
 const Home = () => {
   return (
-    <div className="bg-black min-h-screen relative overflow-hidden">
+    <div className="bg-black min-h-screen relative overflow-hidden bg-gradient-to-r from-gray-950 via-slate-700 to-blue-300">
       {/* Navigation */}
       <div className="mb-20 lg:mb-20"><ResponsiveNav /></div>
 
-      {/* Purple Background Shape */}
+      {/* Glassy Background Shape */}
       <div 
-        className="absolute top-0 right-0 w-[1600px] h-[900px] bg-purple-400"
+          className="absolute top-0 right-0 w-[1600px] h-[900px] bg-gradient-to-l from-purple-400 via-purple-600 to-gray-300 opacity-80 backdrop-blur-lg"
         style={{
           borderBottomLeftRadius: '150% 200%',
           transform: 'translateX(15%) translateY(-20%)',
+          backdropFilter: 'blur(10px)',
+     
         }}
       ></div>
 
@@ -33,56 +34,54 @@ const Home = () => {
         </section>
 
         {/* Right Content - Image Section */}
-      <section className="relative lg:w-1/2 flex items-center justify-center lg:ml-36 lg:-mr-[100px] p-6">
-  {/* Center Image */}
-  <div className="w-56 h-56 bg-cover bg-center rounded-full bg-[url('/images/image1.jpg')] flex items-center justify-center relative -ml-12"></div>
+        <section className="relative lg:w-1/2 flex items-center justify-center lg:ml-36 lg:-mr-[100px] p-6">
+          {/* Center Image */}
+          <div className="w-56 h-56 bg-cover bg-center rounded-full bg-[url('/images/image1.jpg')] flex items-center justify-center relative -ml-12"></div>
 
-  {/* Circular Positioned Images */}
-  <div className="absolute w-[450px] h-[450px] top-10 left-10 flex justify-center">
-    {/* Left Side Circles */}
-    <div
-      className="w-28 h-28 rounded-full bg-cover bg-center absolute"
-      style={{
-        backgroundImage: "url('/images/image1.jpg')",
-        transform: "rotate(-90deg) translate(38px,-280px) rotate(90deg)", 
-      }}
-    ></div>
-    <div
-      className="w-28 h-28 rounded-full bg-cover bg-center absolute"
-      style={{
-        backgroundImage: "url('/images/image1.jpg')",
-        transform: "rotate(-45deg) translateY(-250px) rotate(45deg)", 
-      }}
-    ></div>
+          {/* Circular Positioned Images */}
+          <div className="absolute w-[450px] h-[450px] top-10 left-10 flex justify-center">
+            {/* Left Side Circles */}
+            <div
+              className="w-28 h-28 rounded-full bg-cover bg-center absolute"
+              style={{
+                backgroundImage: "url('/images/image1.jpg')",
+                transform: "rotate(-90deg) translate(38px,-280px) rotate(90deg)", 
+              }}
+            ></div>
+            <div
+              className="w-28 h-28 rounded-full bg-cover bg-center absolute"
+              style={{
+                backgroundImage: "url('/images/image1.jpg')",
+                transform: "rotate(-45deg) translateY(-250px) rotate(45deg)", 
+              }}
+            ></div>
 
-    {/* Top Center Circle */}
-    <div
-      className="w-28 h-28 rounded-full bg-cover bg-center absolute"
-      style={{
-        backgroundImage: "url('/images/image1.jpg')",
-        transform: "rotate(0deg) translateY(-250px) rotate(0deg)",
-      }}
-    ></div>
+            {/* Top Center Circle */}
+            <div
+              className="w-28 h-28 rounded-full bg-cover bg-center absolute"
+              style={{
+                backgroundImage: "url('/images/image1.jpg')",
+                transform: "rotate(0deg) translateY(-250px) rotate(0deg)",
+              }}
+            ></div>
 
-    {/* Right Side Circles - Adjusted for Alignment */}
-    <div
-      className="w-28 h-28 rounded-full bg-cover bg-center absolute"
-      style={{
-        backgroundImage: "url('/images/image1.jpg')",
-        transform: "rotate(45deg) translateY(-250px) rotate(-45deg)", 
-      }}
-    ></div>
-    <div
-      className="w-28 h-28 rounded-full bg-cover bg-center absolute"
-      style={{
-        backgroundImage: "url('/images/image1.jpg')",
-        transform: "rotate(90deg) translate(-35px, -270px) rotate(-90deg)"
-      }}
-    ></div>
-  </div>
-</section>
-
-
+            {/* Right Side Circles - Adjusted for Alignment */}
+            <div
+              className="w-28 h-28 rounded-full bg-cover bg-center absolute"
+              style={{
+                backgroundImage: "url('/images/image1.jpg')",
+                transform: "rotate(45deg) translateY(-250px) rotate(-45deg)", 
+              }}
+            ></div>
+            <div
+              className="w-28 h-28 rounded-full bg-cover bg-center absolute"
+              style={{
+                backgroundImage: "url('/images/image1.jpg')",
+                transform: "rotate(90deg) translate(-35px, -270px) rotate(-90deg)"
+              }}
+            ></div>
+          </div>
+        </section>
       </div>
 
       {/* Scroll Indicators */}
