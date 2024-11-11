@@ -3,13 +3,14 @@ import ResponsiveNav from '../components/Navigation/ResponsiveNav';
 
 const Home = () => {
   return (
-    <div className="bg-black min-h-screen relative overflow-hidden bg-gradient-to-r from-gray-950 via-slate-700 to-blue-300">
+    <div className="bg-black min-h-screen relative overflow-hidden bg-gradient-to-r from-black via-gray-900 to-gray-900">
       {/* Navigation */}
       <div className="mb-20 lg:mb-20"><ResponsiveNav /></div>
 
       {/* Glassy Background Shape */}
       <div 
-          className="absolute top-0 right-0 w-[1600px] h-[900px] bg-gradient-to-l from-purple-400 via-purple-600 to-gray-300 opacity-80 backdrop-blur-lg"
+              className="absolute top-0 border border-thin border-black right-0 w-[1600px] h-[900px] bg-blue-300
+  backdrop-blur-lg"
         style={{
           borderBottomLeftRadius: '150% 200%',
           transform: 'translateX(15%) translateY(-20%)',
