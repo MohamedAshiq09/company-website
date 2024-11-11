@@ -22,11 +22,11 @@ const Home: React.FC = () => {
         <div className="relative lg:w-1/2 p-6">
           <div className="bg-gradient-to-br from-purple-500 to-pink-500 w-96 h-96 rounded-full absolute top-0 -right-10 -z-10"></div>
           <div className="flex flex-col items-center space-y-4">
-            <div className="w-24 h-24 rounded-full bg-cover bg-center bg-[url('/path/to/image1.jpg')]"></div>
-            <div className="w-24 h-24 rounded-full bg-cover bg-center bg-[url('/path/to/image2.jpg')]"></div>
-            <div className="w-24 h-24 rounded-full bg-cover bg-center bg-[url('/path/to/image3.jpg')]"></div>
-            <div className="w-24 h-24 rounded-full bg-cover bg-center bg-[url('/path/to/image4.jpg')]"></div>
-            <div className="w-24 h-24 rounded-full bg-cover bg-center bg-[url('/path/to/image5.jpg')]"></div>
+            <div className="w-24 h-24 rounded-full bg-cover bg-center bg-[url('/images/image1.jpg')]"></div>
+            <div className="w-24 h-24 rounded-full bg-cover bg-center bg-[url('/imagesimage1.jpg')]"></div>
+            <div className="w-24 h-24 rounded-full bg-cover bg-center bg-[url('/images/image1.jpg')]"></div>
+            <div className="w-24 h-24 rounded-full bg-cover bg-center bg-[url('/images/image1.jpg')]"></div>
+            <div className="w-24 h-24 rounded-full bg-cover bg-center bg-[url('/images  /image1.jpg')]"></div>
           </div>
         </div>
       </div>
