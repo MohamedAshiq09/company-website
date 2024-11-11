@@ -20,7 +20,7 @@ const Home: React.FC = () => {
         </div>
 
         {/* Image */}
-        <div className="relative lg:w-1/2 flex items-center justify-center p-6">
+        <div className="relative lg:w-1/2 flex items-center mt-20  justify-center p-6">
           {/* Large Center Circle */}
           <div className="w-48 h-48 bg-cover bg-center rounded-full bg-[url('/images/image1.jpg')] flex items-center justify-center"></div>
 
@@ -29,41 +29,41 @@ const Home: React.FC = () => {
               className="w-24 h-24 rounded-full bg-cover bg-center absolute"
               style={{
                 backgroundImage: "url('/images/image1.jpg')",
-                transform: "rotate(-90deg) translateY(-150px) rotate(90deg)",
+                transform: "rotate(-90deg) translateY(-180px) rotate(90deg)",
               }}
             ></div>
             <div
               className="w-24 h-24 rounded-full bg-cover bg-center absolute"
               style={{
                 backgroundImage: "url('/images/image1.jpg')",
-                transform: "rotate(-45deg) translateY(-150px) rotate(45deg)",
+                transform: "rotate(-45deg) translateY(-180px) rotate(45deg)",
               }}
             ></div>
             <div
               className="w-24 h-24 rounded-full bg-cover bg-center absolute"
               style={{
                 backgroundImage: "url('/images/image1.jpg')",
-                transform: "rotate(0deg) translateY(-150px) rotate(0deg)",
+                transform: "rotate(0deg) translateY(-180px) rotate(0deg)",
               }}
             ></div>
             <div
               className="w-24 h-24 rounded-full bg-cover bg-center absolute"
               style={{
                 backgroundImage: "url('/images/image1.jpg')",
-                transform: "rotate(45deg) translateY(-150px) rotate(-45deg)",
+                transform: "rotate(45deg) translateY(-180px) rotate(-45deg)",
               }}
             ></div>
             <div
               className="w-24 h-24 rounded-full bg-cover bg-center absolute"
               style={{
                 backgroundImage: "url('/images/image1.jpg')",
-                transform: "rotate(90deg) translateY(-150px) rotate(-90deg)",
+                transform: "rotate(90deg) translateY(-180px) rotate(-90deg)",
               }}
             ></div>
           </div>
 
           {/* Background Gradient */}
-          <div className="bg-gradient-to-br from-purple-500 to-pink-500 w-96 h-96 rounded-full absolute -top-16 -right-10 -z-10"></div>
+            <div className="bg-gradient-to-br from-purple-500 to-pink-500 w-96 h-96 rounded-full absolute -top-16 -right-10 -z-10"></div>
         </div>
       </div>
 
